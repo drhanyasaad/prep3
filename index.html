@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سفير التفوق | بنك الأسئلة والمراجعة الشاملة - لغة عربية و Science ٣ع (المنهج الجديد)</title>
+  <meta name="description" content="منصة المراجعة الشاملة وبنك الأسئلة التفاعلي لمنهج اللغة العربية والـ Science للصف الثالث الإعدادي - المنهج الجديد مع ملخص ورقة واحدة لكل درس ونماذج امتحانات الوزارة.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2224%22>📚</text></svg>">
+</head>
+<body>
+
+  <!-- شريط اختيار المادة الدراسية -->
+  <div class="subject-bar">
+    <div class="subject-container">
+      <div class="subject-selector-label">
+        <span>🎓</span> <strong id="subject-bar-label">المادة الدراسية / Select Subject:</strong>
+      </div>
+      <div class="subject-pills">
+        <button class="subject-pill-btn active" id="btn-sub-arabic" onclick="switchSubject('arabic')">
+          <span class="subject-emoji">📚</span>
+          <span class="subject-title">اللغة العربية (٣ع)</span>
+          <span class="subject-badge">المنهج المطور</span>
+        </button>
+        <button class="subject-pill-btn" id="btn-sub-science" onclick="switchSubject('science')">
+          <span class="subject-emoji">🔬</span>
+          <span class="subject-title">Science (Prep 3)</span>
+          <span class="subject-badge" style="background:#0284c7; color:#fff;">Term 1</span>
+        </button>
+        <button class="subject-pill-btn" id="btn-sub-social" onclick="switchSubject('social')">
+          <span class="subject-emoji">🌍</span>
+          <span class="subject-title">الدراسات الاجتماعية</span>
+          <span class="subject-badge" style="background:#059669; color:#fff;">المنهج المطور</span>
+        </button>
+        <button class="subject-pill-btn" id="btn-sub-math" onclick="switchSubject('math')">
+          <span class="subject-emoji">📐</span>
+          <span class="subject-title">Mathematics</span>
+          <span class="subject-badge" style="background:#7c3aed; color:#fff;">Term 1</span>
+        </button>
+        <button class="subject-pill-btn" id="btn-sub-ict" onclick="switchSubject('ict')">
+          <span class="subject-emoji">💻</span>
+          <span class="subject-title">الكمبيوتر وتكنولوجيا المعلومات</span>
+          <span class="subject-badge" style="background:#0d9488; color:#fff;">AI & Python</span>
+        </button>
+        <button class="subject-pill-btn" id="btn-sub-religion" onclick="switchSubject('religion')">
+          <span class="subject-emoji">✝️</span>
+          <span class="subject-title">التربية الدينية المسيحية</span>
+          <span class="subject-badge" style="background:#b45309; color:#fff;">المنهج المطور</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- رأس التطبيق -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-icon" id="brand-icon">📚</div>
+        <div>
+          <div class="brand-title">
+            <span id="brand-title-text">سَفِيرُ التَّفَوُّقِ فِي اللُّغَةِ العَرَبِيَّةِ</span>
+            <span class="badge-tag" id="brand-badge-tag">المنهج الجديد 2026 / 2027</span>
+          </div>
+          <div class="brand-subtitle" id="brand-subtitle-text">
+            الصف الثالث الإعدادي • الفصل الدراسي الأول • بنك أسئلة ذكي ومراجعة الورقة الواحدة
+          </div>
+        </div>
+      </div>
+
+      <!-- أدوات التحكم والتبديل بين وضعي المذاكرة والامتحان -->
+      <div class="header-actions">
+        <div class="mode-pill" title="انقر للتبديل بين وضع المذاكرة المباشر ووضع الامتحان الرسمي">
+          <span id="mode-status-text">⚡ وضع المذاكرة (تصحيح وتفسير فوري)</span>
+          <button class="mode-switch-btn" id="mode-switch-btn">🔄 تبديل</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- شريط التبويبات الرئيسي -->
+  <nav class="nav-tabs">
+    <div class="tabs-wrapper">
+      <button class="tab-btn active" data-tab="summaries" id="tab-btn-summaries">
+        <span>📑</span> <span id="tab-text-summaries">ملخصات الدروس (صفحتان بصريتان لكل درس)</span>
+      </button>
+      <button class="tab-btn" data-tab="lesson_quiz" id="tab-btn-quiz">
+        <span>🎯</span> <span id="tab-text-quiz">بنك أسئلة وتدريب الفروع (درس بدرس)</span>
+      </button>
+      <button class="tab-btn" data-tab="unit_exams" id="tab-btn-unit">
+        <span>🏆</span> <span id="tab-text-unit">اختبارات الوحدات (شاملة ومجمعة)</span>
+      </button>
+      <button class="tab-btn" data-tab="ministry_exams" id="tab-btn-ministry">
+        <span>📜</span> <span id="tab-text-ministry">امتحانات الوزارة الشاملة (الشهادة الإعدادية)</span>
+      </button>
+      <button class="tab-btn" data-tab="analytics" id="tab-btn-analytics">
+        <span>📊</span> <span id="tab-text-analytics">إحصائياتي وتوجيهات التفوق</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- الحاوية الرئيسية للمحتوى -->
+  <main class="main-content">
+    <!-- إشعار توجيهي سريع -->
+    <div class="info-banner">
+      <div class="info-banner-text" id="info-banner-content">
+        💡 <strong>نصيحة المذاكرة:</strong> يمكنك استخدام <strong>(وضع المذاكرة)</strong> لمشاهدة التفسير الفوري وسبب صواب وخطأ كل خيار، أو التبديل إلى <strong>(وضع الامتحان)</strong> لمحاكاة اختبار الوزارة بوقت محدد وظهور التقرير بعد التسليم.
+      </div>
+    </div>
+
+    <!-- شريط اختيار الوحدة والدرس (يظهر في تبويبي الملخص وتدريب الدروس) -->
+    <div class="selector-bar" id="selector-bar">
+      <div class="select-group">
+        <label for="unit-select" id="unit-select-label" style="font-weight: 800; color: #1e3a8a; white-space: nowrap;">الوحدة:</label>
+        <select id="unit-select" class="custom-select"></select>
+      </div>
+
+      <div class="select-group">
+        <label for="lesson-select" id="lesson-select-label" style="font-weight: 800; color: #1e3a8a; white-space: nowrap;">الدرس:</label>
+        <select id="lesson-select" class="custom-select"></select>
+      </div>
+    </div>
+
+    <!-- مساحة العرض الديناميكية -->
+    <div id="view-container"></div>
+  </main>
+
+  <!-- التذييل -->
+  <footer class="app-footer">
+    <p id="footer-text-1">منصة سفير التفوق في المواد الدراسية للصف الثالث الإعدادي (الشهادة الإعدادية) • المنهج الجديد المطور</p>
+    <p style="margin-top: 0.35rem; color: #94a3b8; font-size: 0.8rem;" id="footer-text-2">
+      جميع الأسئلة والمراجعات مصممة بدقة وفق أحدث كتب ومواصفات الورقة الامتحانية لوزارة التربية والتعليم والتعليم الفني المصرية
+    </p>
+  </footer>
+
+  <!-- ملفات البيانات والتشغيل -->
+  <script src="data/curriculum.js"></script>
+  <script src="data/science_curriculum.js"></script>
+  <script src="data/social_curriculum.js"></script>
+  <script src="data/math_curriculum.js"></script>
+  <script src="data/ict_curriculum.js"></script>
+  <script src="data/religion_curriculum.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
